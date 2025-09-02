@@ -1,0 +1,275 @@
+2025-09-01 17:37:46 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:37:46 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_1.csv
+2025-09-01 17:37:46 [main] ERROR com.litmus7.inventory.service.InventoryService - Failed to move file inventory_1.csv: inventory-feed\input\inventory_1.csv -> inventory-feed\processed\inventory_1.csv: The process cannot access the file because it is being used by another process
+2025-09-01 17:37:46 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory_1.csv
+2025-09-01 17:37:46 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_1.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 17:37:46 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-01 17:41:27 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_invalid.csv, Status: FAIL, Message: Processing failed: For input string: "abc"
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-01 17:41:27 [main] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 301
+java.sql.SQLSyntaxErrorException: Table 'empdb.inventory' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:23) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:60) [bin/:?]
+	at com.litmus7.inventory.controller.InventoryController.processAllFiles(InventoryController.java:25) [bin/:?]
+	at com.litmus7.inventory.app.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+2025-09-01 17:41:27 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: Failed to insert inventory item: 301
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_mixed.csv, Status: FAIL, Message: Processing failed: Failed to insert inventory item: 301
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-01 17:41:27 [main] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 101
+java.sql.SQLSyntaxErrorException: Table 'empdb.inventory' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:23) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:60) [bin/:?]
+	at com.litmus7.inventory.controller.InventoryController.processAllFiles(InventoryController.java:25) [bin/:?]
+	at com.litmus7.inventory.app.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+2025-09-01 17:41:27 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_valid.csv: Failed to insert inventory item: 101
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_valid.csv, Status: FAIL, Message: Processing failed: Failed to insert inventory item: 101
+2025-09-01 17:41:27 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:41:34 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:41:34 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 17:41:34 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:42:04 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:42:04 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 17:42:04 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:42:50 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:42:50 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-01 17:42:50 [main] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 101
+java.sql.SQLSyntaxErrorException: Table 'empdb.inventory' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:23) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:60) [bin/:?]
+	at com.litmus7.inventory.controller.InventoryController.processAllFiles(InventoryController.java:25) [bin/:?]
+	at com.litmus7.inventory.app.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+2025-09-01 17:42:50 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_valid.csv: Failed to insert inventory item: 101
+2025-09-01 17:42:50 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_valid.csv, Status: FAIL, Message: Processing failed: Failed to insert inventory item: 101
+2025-09-01 17:42:50 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:42:57 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:42:57 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 17:42:57 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:45:51 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:45:51 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory1.csv
+2025-09-01 17:45:51 [main] ERROR com.litmus7.inventory.service.InventoryService - Failed to move file inventory1.csv: inventory-feed\input\inventory1.csv -> inventory-feed\processed\inventory1.csv: The process cannot access the file because it is being used by another process
+2025-09-01 17:45:51 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory1.csv
+2025-09-01 17:45:51 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory1.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 17:45:51 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory1.csv
+2025-09-01 17:47:24 [main] ERROR com.litmus7.inventory.service.InventoryService - Failed to move file inventory1.csv: inventory-feed\input\inventory1.csv -> inventory-feed\processed\inventory1.csv: The process cannot access the file because it is being used by another process
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory1.csv
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory1.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory2.csv
+2025-09-01 17:47:24 [main] ERROR com.litmus7.inventory.service.InventoryService - Failed to move file inventory2.csv: inventory-feed\input\inventory2.csv -> inventory-feed\processed\inventory2.csv: The process cannot access the file because it is being used by another process
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory2.csv
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory2.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 17:47:24 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory1.csv
+2025-09-01 20:19:41 [main] ERROR com.litmus7.inventory.service.InventoryService - Failed to move file inventory1.csv: inventory-feed\input\inventory1.csv -> D:\Java_lit\employeeManager\inventoryapp\inventory-feed\processed\inventory1.csv: The process cannot access the file because it is being used by another process
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory1.csv
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory1.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory2.csv
+2025-09-01 20:19:41 [main] ERROR com.litmus7.inventory.service.InventoryService - Failed to move file inventory2.csv: inventory-feed\input\inventory2.csv -> D:\Java_lit\employeeManager\inventoryapp\inventory-feed\processed\inventory2.csv: The process cannot access the file because it is being used by another process
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory2.csv
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory2.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 20:19:41 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory1.csv
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory1.csv
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory1.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory2.csv
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory2.csv
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory2.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 20:25:50 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:41:39 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:41:39 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-01 20:41:40 [main] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 101
+java.sql.SQLSyntaxErrorException: Table 'empdb.inventory' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:35) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:60) [bin/:?]
+	at com.litmus7.inventory.controller.InventoryController.processAllFiles(InventoryController.java:23) [bin/:?]
+	at com.litmus7.inventory.app.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+2025-09-01 20:41:40 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_valid.csv: Error inserting inventory item: 101
+2025-09-01 20:41:40 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_valid.csv, Status: FAIL, Message: Processing failed: Error inserting inventory item: 101
+2025-09-01 20:41:40 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:43:54 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:43:54 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 20:43:54 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-01 20:44:59 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_invalid.csv, Status: FAIL, Message: Processing failed: For input string: "abc"
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-01 20:44:59 [main] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 301
+java.sql.SQLSyntaxErrorException: Table 'empdb.inventory' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:35) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:60) [bin/:?]
+	at com.litmus7.inventory.controller.InventoryController.processAllFiles(InventoryController.java:23) [bin/:?]
+	at com.litmus7.inventory.app.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+2025-09-01 20:44:59 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: Error inserting inventory item: 301
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_mixed.csv, Status: FAIL, Message: Processing failed: Error inserting inventory item: 301
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-01 20:44:59 [main] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 101
+java.sql.SQLSyntaxErrorException: Table 'empdb.inventory' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:35) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:60) [bin/:?]
+	at com.litmus7.inventory.controller.InventoryController.processAllFiles(InventoryController.java:23) [bin/:?]
+	at com.litmus7.inventory.app.InventoryApp.main(InventoryApp.java:13) [bin/:?]
+2025-09-01 20:44:59 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_valid.csv: Error inserting inventory item: 101
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_valid.csv, Status: FAIL, Message: Processing failed: Error inserting inventory item: 101
+2025-09-01 20:44:59 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:47:14 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:47:14 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 20:47:14 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor...
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-01 20:48:00 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_invalid.csv, Status: FAIL, Message: Processing failed: For input string: "abc"
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-01 20:48:00 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_mixed.csv, Status: FAIL, Message: Processing failed: For input string: "xyz"
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory_feed_valid.csv
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_valid.csv, Status: SUCCESS, Message: File processed successfully
+2025-09-01 20:48:00 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:51:12 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor
+2025-09-01 20:51:12 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 20:51:12 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:51:35 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor
+2025-09-01 20:51:35 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-01 20:51:35 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-01 20:51:35 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_invalid.csv, Status: FAIL, Message: Processing failed: For input string: "abc"
+2025-09-01 20:51:35 [main] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-01 20:51:35 [main] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-01 20:51:35 [main] INFO  com.litmus7.inventory.controller.InventoryController - File: inventory_feed_mixed.csv, Status: FAIL, Message: Processing failed: For input string: "xyz"
+2025-09-01 20:51:35 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:51:47 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor
+2025-09-01 20:51:47 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 20:51:47 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 20:56:47 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor
+2025-09-01 20:56:47 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 20:56:47 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 21:28:01 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-01 21:28:01 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-01 21:28:01 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 21:28:56 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-01 21:28:56 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-01 21:28:56 [Thread-0] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-01 21:28:56 [Thread-1] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-01 21:28:56 [Thread-0] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-01 21:28:56 [Thread-1] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-02 20:54:25 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 20:54:25 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-02 20:54:25 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-02 20:54:32 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 20:54:33 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-02 20:54:33 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-02 20:55:48 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 20:55:48 [Thread-0] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-02 20:55:48 [Thread-0] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-02 20:55:48 [Thread-1] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-02 20:55:48 [Thread-1] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-02 20:55:48 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-02 20:56:33 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 20:56:33 [main] WARN  com.litmus7.inventory.controller.InventoryController - No files found in input folder.
+2025-09-02 20:56:33 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-02 21:02:53 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 21:02:53 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-02 21:02:53 [Thread-0] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-02 21:02:53 [Thread-1] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-02 21:02:53 [Thread-2] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-02 21:02:53 [Thread-0] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-02 21:02:53 [Thread-1] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-02 21:02:53 [Thread-2] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 101
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '101' for key 'inventory.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:27) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:68) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.run(InventoryService.java:32) [bin/:?]
+	at java.lang.Thread.run(Thread.java:1589) [?:?]
+2025-09-02 21:02:53 [Thread-2] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_valid.csv: Error inserting inventory item: 101
+2025-09-02 21:09:17 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 21:09:17 [Thread-0] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-02 21:09:17 [Thread-0] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-02 21:09:17 [Thread-1] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-02 21:09:17 [Thread-1] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-02 21:09:17 [Thread-2] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-02 21:09:17 [Thread-2] ERROR com.litmus7.inventory.dao.InventoryDAO - Failed to insert item: 101
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '101' for key 'inventory.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.4.0.jar:?]
+	at com.litmus7.inventory.dao.InventoryDAO.insertItem(InventoryDAO.java:27) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.processFile(InventoryService.java:68) [bin/:?]
+	at com.litmus7.inventory.service.InventoryService.run(InventoryService.java:32) [bin/:?]
+	at java.lang.Thread.run(Thread.java:1589) [?:?]
+2025-09-02 21:09:17 [Thread-2] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_valid.csv: Error inserting inventory item: 101
+2025-09-02 21:09:17 [main] INFO  com.litmus7.inventory.app.InventoryApp - Processing completed.
+2025-09-02 21:16:41 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 21:16:41 [main] INFO  com.litmus7.inventory.controller.InventoryController - Processing completed.
+2025-09-02 21:17:25 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 21:17:25 [main] INFO  com.litmus7.inventory.controller.InventoryController - Processing completed.
+2025-09-02 21:17:25 [Thread-1] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-02 21:17:25 [Thread-2] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_valid.csv
+2025-09-02 21:17:25 [Thread-0] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-02 21:17:25 [Thread-0] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-02 21:17:25 [Thread-1] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-02 21:17:25 [Thread-2] INFO  com.litmus7.inventory.service.InventoryService - Successfully processed: inventory_feed_valid.csv
+2025-09-02 21:19:45 [main] INFO  com.litmus7.inventory.app.InventoryApp - Starting Inventory Feed Processor phase 2
+2025-09-02 21:19:45 [Thread-1] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_mixed.csv
+2025-09-02 21:19:45 [Thread-0] INFO  com.litmus7.inventory.service.InventoryService - Processing file: inventory_feed_invalid.csv
+2025-09-02 21:19:45 [Thread-0] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_invalid.csv: For input string: "abc"
+2025-09-02 21:19:45 [Thread-1] ERROR com.litmus7.inventory.service.InventoryService - Error processing file inventory_feed_mixed.csv: For input string: "xyz"
+2025-09-02 21:19:45 [main] INFO  com.litmus7.inventory.controller.InventoryController - All files processed (Phase 2 completed).
